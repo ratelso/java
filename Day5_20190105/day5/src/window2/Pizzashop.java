@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -22,6 +23,8 @@ public class Pizzashop {
 	int potato_n = 0;
 	int bulgogi_n = 0;
 	JTextArea list;
+	private JLabel label;
+	private JButton btnNewButton;
 	//이것들을 static에 붙이면 메모리 많이 차지해서 밖으로 빼는 것
 	public Pizzashop() {
 		f = new JFrame();
@@ -33,16 +36,27 @@ public class Pizzashop {
 		result = new JLabel("개수");
 		n = new JTextField(20);
 		FlowLayout flow = new FlowLayout();
-		f.setLayout(flow); // 세팅해주는 메소드
+		f.getContentPane().setLayout(flow); // 세팅해주는 메소드
 		list = new JTextArea(3, 30);
-		f.add(top);
-		f.add(combo);
-		f.add(potato);
-		f.add(bulgogi);
-		f.add(result);
-		f.add(n);
-		f.add(list);
+		f.getContentPane().add(top);
+		f.getContentPane().add(combo);
+		f.getContentPane().add(potato);
+		f.getContentPane().add(bulgogi);
+		f.getContentPane().add(result);
+		f.getContentPane().add(n);
+		f.getContentPane().add(list);
 		result.setForeground(Color.RED);
+		
+		label = new JLabel("총계");
+		f.getContentPane().add(label);
+		
+		btnNewButton = new JButton("PUSH");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "헤에...");
+			}
+		});
+		f.getContentPane().add(btnNewButton);
 		
 		combo.addActionListener(new ActionListener() {
 			@Override
